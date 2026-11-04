@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\SchoolSchedule.Core\SchoolSchedule.Core.csproj" />
+  </ItemGroup>
+
 </Project>

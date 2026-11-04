@@ -1,1 +1,6 @@
-<Solution />
+<Solution>
+  <Project Path="SchoolSchedule.Api/SchoolSchedule.Api.csproj" Id="c21aa149-8212-4a59-90b2-c3f2a6beacdc" />
+  <Project Path="SchoolSchedule.Core/SchoolSchedule.Core.csproj" Id="7ab4e93e-ef26-47db-87ad-b0291d006da7" />
+  <Project Path="SchoolSchedule.Infrastructure/SchoolSchedule.Infrastructure.csproj" Id="2910d3f3-c3b1-4c05-8c7e-ff194d5e7872" />
+  <Project Path="SchoolSchedule.Wpf/SchoolSchedule.Wpf.csproj" Id="4eb52397-87bc-47d0-a4f6-4769ff84354e" />
+</Solution>
