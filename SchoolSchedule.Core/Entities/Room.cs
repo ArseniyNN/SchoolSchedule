@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SchoolSchedule.Core
+namespace SchoolSchedule.Core.Entities
 {
     public class Room
     {
@@ -23,6 +23,6 @@ namespace SchoolSchedule.Core
             PhysicsLab,
             Gym
         }
-        public IEnumerable<LessonSlot> Lesson { get; set; } = new List<LessonSlot> ();
+        public IEnumerable<LessonSlot> Lessons { get; set; } = new List<LessonSlot> ();
     }
 }

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SchoolSchedule.Core
+namespace SchoolSchedule.Core.Entities
 {
     public class Subject
     {

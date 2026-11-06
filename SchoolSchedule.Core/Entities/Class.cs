@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SchoolSchedule.Core
+namespace SchoolSchedule.Core.Entities
 {
     public class Class
     {
@@ -10,6 +10,6 @@ namespace SchoolSchedule.Core
         [MaxLength(3, ErrorMessage = "Максимум 3 символа")]
         [Display(Name = "Название класса")]
         public string Name { get; set; } = "";
-        public IEnumerable<LessonSlot> Lesson { get; set; } = new List<LessonSlot>();
+        public IEnumerable<LessonSlot> Lessons { get; set; } = new List<LessonSlot>();
     }
 }

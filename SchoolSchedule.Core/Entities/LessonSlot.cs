@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SchoolSchedule.Core
+namespace SchoolSchedule.Core.Entities
 {
     public class LessonSlot
     {

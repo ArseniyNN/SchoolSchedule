@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
 
-namespace SchoolSchedule.Core
+namespace SchoolSchedule.Core.Entities
 {
     public class Teacher
     {
@@ -16,6 +16,6 @@ namespace SchoolSchedule.Core
         [Required(ErrorMessage = "Колличество часов обязательно")]
         [Display(Name = "Максимальное количество часов занятости на неделю")]
         public int MaxHoursPerWeek { get; set; }
-        public IEnumerable<LessonSlot> Lesson { get; set; } = new List<LessonSlot>();
+        public IEnumerable<LessonSlot> Lessons { get; set; } = new List<LessonSlot>();
     }
 }
