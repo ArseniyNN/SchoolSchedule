@@ -1,10 +1,12 @@
-﻿using System;
+﻿using SchoolSchedule.Core.Entities;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace SchoolSchedule.Core.Interfaces
 {
-    internal interface ISheduleGenerator
+    public interface ISheduleGenerator
     {
+        Task<IEnumerable<LessonSlot>> GenerateLessonSlotsAsync();
     }
 }
