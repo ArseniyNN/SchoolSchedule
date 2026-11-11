@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using SchoolSchedule.Core.Enums;
 
 namespace SchoolSchedule.Core.Entities
 {
@@ -15,14 +16,6 @@ namespace SchoolSchedule.Core.Entities
         [Required(ErrorMessage = "Тип кабинета обязателен")]
         [Display(Name = "Тип кабинета")]
         public RoomType Type {  get; set; }
-        public enum RoomType 
-        {
-            Regular,
-            ComputerLab,
-            ChemistryLab,
-            PhysicsLab,
-            Gym
-        }
         public IEnumerable<LessonSlot> Lessons { get; set; } = new List<LessonSlot> ();
     }
 }

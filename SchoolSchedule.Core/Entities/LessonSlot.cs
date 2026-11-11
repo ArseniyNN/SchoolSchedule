@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using SchoolSchedule.Core.Enums;
 
 namespace SchoolSchedule.Core.Entities
 {
@@ -20,14 +21,6 @@ namespace SchoolSchedule.Core.Entities
         [Display(Name = "Номер урока")]
         [Range(1,8,ErrorMessage ="Номер урока может быть от 1 до 8")]
         public int LessonNumber {  get; set; }
-        public DayOfWeek DayWeek {  get; set; }
-        public enum DayOfWeek
-        {
-            Monday,
-            Tuesday,
-            Wednesday,
-            Thursday,
-            Friday
-        }
+        public LessonDay DayWeek {  get; set; }
     }
 }

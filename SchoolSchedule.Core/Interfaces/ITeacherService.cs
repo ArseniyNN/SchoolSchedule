@@ -9,8 +9,8 @@ namespace SchoolSchedule.Core.Interfaces
     {
         Task AssignSubjectToTeacherAsync(int teacherId, int subjectId);
         Task<bool> CanTeacherTeachSubjectAsync(int teacherId, int subjectId);
-        Task<int> HasExceededMaxHoursAsync(int teacherId);
-        Task<Teacher> GetTeacherByIdAsync(int teacherId);
+        Task<int> GetExceededMaxHoursAsync(int teacherId);
+        Task<Teacher?> GetTeacherByIdAsync(int teacherId);
         Task<IEnumerable<Teacher>> GetAllTeacherAsync();
     }
 }
