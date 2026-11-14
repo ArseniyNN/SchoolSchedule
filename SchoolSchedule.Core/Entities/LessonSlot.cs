@@ -19,7 +19,7 @@ namespace SchoolSchedule.Core.Entities
         public Room? Room { get; set; }
         [Required(ErrorMessage = "Номер урока обязателен")]
         [Display(Name = "Номер урока")]
-        [Range(1,8,ErrorMessage ="Номер урока может быть от 1 до 8")]
+        [Range(1,7,ErrorMessage ="Номер урока может быть от 1 до 7")]
         public int LessonNumber {  get; set; }
         public LessonDay DayWeek {  get; set; }
     }

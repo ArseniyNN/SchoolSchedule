@@ -7,8 +7,8 @@ namespace SchoolSchedule.Core.Interfaces
 {
     public interface ICurriculumItemService
     {
-        Task<Class> GetClassByIdAsync(int ClassId);
-        Task<IEnumerable<Class>> GetAllClassAsync();
+        Task<CurriculumItem?> GetCurrilicumItemByIdAsync(int ClassId);
+        Task<IEnumerable<CurriculumItem>> GetAllCurrilicumItemsAsync();
         Task<IEnumerable<CurriculumItem>> GetClassesCurriculumItemsAsync(int classId);
         Task<int> ValidateClassHoursAsync(int classId);
 

@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using SchoolSchedule.Core.Enums;
+using System.ComponentModel.DataAnnotations;
 
 namespace SchoolSchedule.Core.Entities
 {
@@ -10,5 +11,6 @@ namespace SchoolSchedule.Core.Entities
         [MaxLength(50, ErrorMessage = "Максимум 50 символов")]
         [Display(Name = "Название предмета")]
         public string Name { get; set; } = "";
+        public RoomType RequiredRoomType { get; set; }
     }
 }

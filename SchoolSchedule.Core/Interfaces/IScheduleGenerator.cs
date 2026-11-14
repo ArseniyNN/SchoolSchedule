@@ -5,7 +5,7 @@ using System.Text;
 
 namespace SchoolSchedule.Core.Interfaces
 {
-    public interface ISheduleGenerator
+    public interface IScheduleGenerator
     {
         Task<IEnumerable<LessonSlot>> GenerateLessonSlotsAsync();
     }

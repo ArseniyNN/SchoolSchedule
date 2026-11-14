@@ -10,7 +10,7 @@ namespace SchoolSchedule.Core.Entities
     {
         public int Id {  get; set; }
         [Required(ErrorMessage = "Номер обязателен")]
-        [Range (1,5 , ErrorMessage ="Размер числа от 1 до 5 символов")]
+        [Range (1,500, ErrorMessage ="Размер числа от 1 до 5 символов")]
         [Display(Name = "Номер кабинета")]
         public int Number { get; set; }
         [Required(ErrorMessage = "Тип кабинета обязателен")]
