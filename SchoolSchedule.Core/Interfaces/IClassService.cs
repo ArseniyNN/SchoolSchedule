@@ -9,5 +9,8 @@ namespace SchoolSchedule.Core.Interfaces
     {
         Task<Class?> GetClassByIdAsync(int id);
         Task<IEnumerable<Class>> GetAllClassesAsync();
+        Task AddClassAsync(Class entity);
+        Task UpdateClassAsync(Class entity);
+        Task DeleteClassAsync(int id);
     }
 }

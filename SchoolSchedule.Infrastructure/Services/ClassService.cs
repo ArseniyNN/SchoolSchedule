@@ -10,16 +10,16 @@ namespace SchoolSchedule.Infrastructure.Services
 {
     public class ClassService : IClassService
     {
-        private readonly AppDbContext _context;
+        private readonly IRepository<Class> _classRepository;
 
-        public ClassService(AppDbContext context)
+        public ClassService(IRepository<Class> classRepository )
         {
-            _context = context;
+            _classRepository = classRepository;
         }
 
         public async Task<Class?> GetClassByIdAsync(int id)
         {
-            var clas = await _context.Classes.FindAsync(id);
+            var clas = await _classRepository.GetByIdAsync(id);
             if(clas != null)
             {
                 return clas;
@@ -32,8 +32,31 @@ namespace SchoolSchedule.Infrastructure.Services
 
         public async Task<IEnumerable<Class>> GetAllClassesAsync()
         {
-            var classes = await _context.Classes.ToListAsync();
+            var classes = await _classRepository.GetAllAsync();
             return classes;
+        }
+
+        public async Task AddClassAsync(Class classEntity)
+        {
+            if(classEntity != null)
+            {
+                await _classRepository.AddAsync(classEntity);
+            }
+        }
+        public async Task UpdateClassAsync(Class classEntity)
+        {
+            if( classEntity != null)
+            {
+                await _classRepository.UpdateAsync(classEntity);
+            }
+        }
+
+        public async Task DeleteClassAsync(int id)
+        {
+            if(id> 0)
+            {
+                await _classRepository.DeleteAsync(id);
+            }
         }
 
     }

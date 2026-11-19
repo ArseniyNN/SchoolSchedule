@@ -7,10 +7,10 @@ using System.Text;
 
 namespace SchoolSchedule.Infrastructure.Services
 {
-    public class EfRepository<T> : IRepository<T> where T : class
+    public class Repository<T> : IRepository<T> where T : class
     {
         private readonly AppDbContext _context;
-        public EfRepository(AppDbContext context) 
+        public Repository(AppDbContext context) 
         {
             _context = context;
         }

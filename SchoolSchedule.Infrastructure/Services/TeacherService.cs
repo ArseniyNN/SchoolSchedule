@@ -10,10 +10,12 @@ namespace SchoolSchedule.Infrastructure.Services
 {
     public class TeacherService : ITeacherService
     {
+        private readonly IRepository<Teacher> _teacherRepository;
         private readonly AppDbContext _context;
-        public TeacherService (AppDbContext context)
+        public TeacherService (AppDbContext context, IRepository<Teacher> teacherRepository)
         {
             _context = context;
+            _teacherRepository = teacherRepository;
         }
 
         public async Task AssignSubjectToTeacherAsync(int teacherId,int subjectId)
@@ -47,7 +49,7 @@ namespace SchoolSchedule.Infrastructure.Services
         }
         public async Task<Teacher?> GetTeacherByIdAsync(int teacherId)
         {
-            var teacher = await _context.Teachers.FindAsync(teacherId);
+            var teacher = await _teacherRepository.GetByIdAsync(teacherId);
             if(teacher!= null)
             {
                 return teacher;
@@ -60,8 +62,29 @@ namespace SchoolSchedule.Infrastructure.Services
 
         public async Task<IEnumerable<Teacher>> GetAllTeacherAsync()
         {
-            var teachers = await _context.Teachers.ToListAsync();
+            var teachers = await _teacherRepository.GetAllAsync();
             return teachers;
+        }
+        public async Task AddTeacherAsync(Teacher teacher)
+        {
+            if(teacher != null)
+            {
+                await _teacherRepository.AddAsync(teacher);
+            }
+        }
+        public async Task DeleteTeacherAsync(int teacherId)
+        {
+            if(teacherId > 0)
+            {
+                await _teacherRepository.DeleteAsync(teacherId);
+            }
+        }
+        public async Task UpdateTeacherAsync(Teacher teacher)
+        {
+            if( teacher != null)
+            {
+                await _teacherRepository.UpdateAsync(teacher);
+            }
         }
     }
 }

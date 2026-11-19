@@ -12,5 +12,8 @@ namespace SchoolSchedule.Core.Interfaces
         Task<int> GetExceededMaxHoursAsync(int teacherId);
         Task<Teacher?> GetTeacherByIdAsync(int teacherId);
         Task<IEnumerable<Teacher>> GetAllTeacherAsync();
+        Task AddTeacherAsync(Teacher teacher);
+        Task DeleteTeacherAsync(int id);
+        Task UpdateTeacherAsync(Teacher teacher);
     }
 }

@@ -7,10 +7,14 @@ namespace SchoolSchedule.Core.Interfaces
 {
     public interface ICurriculumItemService
     {
-        Task<CurriculumItem?> GetCurrilicumItemByIdAsync(int ClassId);
+        Task<CurriculumItem?> GetCurrilicumItemByClassIdAsync(int ClassId);
         Task<IEnumerable<CurriculumItem>> GetAllCurrilicumItemsAsync();
+        Task<CurriculumItem?> GetCurrilicumItemByIdAsync(int curriculumItemId);
         Task<IEnumerable<CurriculumItem>> GetClassesCurriculumItemsAsync(int classId);
         Task<int> ValidateClassHoursAsync(int classId);
+        Task AddCurriculumItemAsync(CurriculumItem curriculumItem);
+        Task UpdateCuriculumItemAsync(CurriculumItem curriculumItem);
+        Task DeleteCurriculumItemAsync(int curiculumItemId);
 
     }
 }

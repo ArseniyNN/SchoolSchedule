@@ -12,5 +12,8 @@ namespace SchoolSchedule.Core.Interfaces
         Task<IEnumerable<Room>> GetAllRoomsAsync();
         Task<IEnumerable<Room>> GetRoomsByTypeAsync(RoomType roomtype);
         Task<bool> IsRoomAvailableAsync(int roomId , int lessonNember , LessonDay dayOfWeek);
+        Task AddRoomAsync (Room room);
+        Task UpdateRoomAsync(Room room);
+        Task DeleteRoomAsync(int roomId);
     }
 }

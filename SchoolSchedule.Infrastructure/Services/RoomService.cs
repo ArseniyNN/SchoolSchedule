@@ -12,13 +12,15 @@ namespace SchoolSchedule.Infrastructure.Services
     public class RoomService : IRoomService
     {
         private readonly AppDbContext _context;
-        public RoomService(AppDbContext context)
+        private readonly IRepository<Room> _repository;
+        public RoomService(AppDbContext context , IRepository<Room> repository)
         {
+            _repository = repository;
             _context = context;
         }
         public async Task<Room?> GetRoomByIdAsync(int id)
         {
-            var room = await _context.Rooms.FindAsync(id);
+            var room = await _repository.GetByIdAsync(id);
             if(room == null)
             {
                 return null;
@@ -31,7 +33,7 @@ namespace SchoolSchedule.Infrastructure.Services
 
         public async Task<IEnumerable<Room>> GetAllRoomsAsync()
         {
-            var rooms = await _context.Rooms.ToListAsync();
+            var rooms = await _repository.GetAllAsync();
             return rooms;
         }
 
@@ -45,6 +47,28 @@ namespace SchoolSchedule.Infrastructure.Services
         {
             bool isAvailable  = await _context.LessonSlots.AnyAsync(l => l.RoomId == roomId && l.LessonNumber == lessonNumber && l.DayWeek == dayOfWeek);
             return isAvailable;
+        }
+
+        public async Task AddRoomAsync(Room room)
+        {
+            if(room != null)
+            {
+                await _repository.AddAsync(room);
+            }
+        }
+        public async Task DeleteRoomAsync(int roomId)
+        {
+            if(roomId > 0)
+            {
+                await _repository.DeleteAsync(roomId);
+            }
+        }
+        public async Task UpdateRoomAsync(Room room)
+        {
+            if( room != null)
+            {
+                await _repository.UpdateAsync(room);
+            }
         }
     }
 }

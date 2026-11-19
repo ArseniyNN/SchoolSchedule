@@ -11,11 +11,13 @@ namespace SchoolSchedule.Infrastructure.Services
     public class CurriculumItemService : ICurriculumItemService
     {
         private readonly AppDbContext _context;
-            public CurriculumItemService(AppDbContext context)
+        private readonly IRepository<CurriculumItem> _repository;
+            public CurriculumItemService(AppDbContext context , IRepository<CurriculumItem> repository)
             {
+            _repository = repository;
             _context = context;
             }
-        public async Task<CurriculumItem?> GetCurrilicumItemByIdAsync(int id)
+        public async Task<CurriculumItem?> GetCurrilicumItemByClassIdAsync(int id)
         {
             var curilicumItem = await _context.CurriculumItems.FindAsync(id);
             if(curilicumItem != null)
@@ -30,7 +32,7 @@ namespace SchoolSchedule.Infrastructure.Services
 
         public async Task<IEnumerable<CurriculumItem>> GetAllCurrilicumItemsAsync()
         {
-            var curilicumItem = await _context.CurriculumItems.ToListAsync();
+            var curilicumItem = await _repository.GetAllAsync();
             return curilicumItem;
         }
 
@@ -43,6 +45,40 @@ namespace SchoolSchedule.Infrastructure.Services
         {
             var hours = await _context.CurriculumItems.Where(c => c.ClassId == classId).SumAsync(c => c.HoursPerWeek);
             return hours;
+        }
+
+        public async Task<CurriculumItem?> GetCurrilicumItemByIdAsync(int id)
+        {
+            var currIt = await _repository.GetByIdAsync(id);
+            if(currIt != null)
+            {
+                return currIt;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        public async Task AddCurrilicumItemAsync(CurriculumItem curriculumItem)
+        {
+            if(curriculumItem != null)
+            {
+                await _repository.AddAsync(curriculumItem);
+            }
+        }
+        public async Task UpdateCurrilicumItemAsync(CurriculumItem currriculumItem)
+        {
+            if(currriculumItem != null)
+            {
+                await _repository.UpdateAsync(currriculumItem);
+            }
+        }
+        public async Task DeleteCurrilicumItemAsync(int id)
+        {
+            if(id > 0)
+            {
+                await _repository.DeleteAsync(id);
+            }
         }
     }
 }

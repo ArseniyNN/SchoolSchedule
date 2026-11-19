@@ -7,6 +7,7 @@ using SchoolSchedule.Core.Interfaces;
 using SchoolSchedule.Infrastructure.Data;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 
@@ -57,7 +58,15 @@ namespace SchoolSchedule.Infrastructure.Services
             {
                 if(count >= taskQueue.Count)
                 {
-                    break;
+                    var fail = taskQueue.Select(item =>
+                    {
+                        var classout = classes.FirstOrDefault(c => c.Id == item.ClassId)?.Name;
+                        var subjectout = subjectBase.FirstOrDefault(s => s.Id == item.SubjectId)?.Name;
+                        return $"{classout} - {subjectout}";
+                    }
+                    );
+                    var message = string.Join(",", fail);
+                    throw new InvalidOperationException($"Не удалось составить расписаие и поместить данные классы с их уроками: { message }");
                 }
                 var temp = taskQueue.Dequeue();
                 bool isPlaced = false;
