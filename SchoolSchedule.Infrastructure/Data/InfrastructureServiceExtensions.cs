@@ -23,6 +23,7 @@ namespace SchoolSchedule.Infrastructure.Data
             services.AddScoped<IScheduleGenerator, ScheduleGeneratorService>();
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<ISubjectService, SubjectService>();
+            services.AddScoped<IScheduleService, ScheduleService>();
             return services;
         }
     }

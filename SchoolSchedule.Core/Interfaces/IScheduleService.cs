@@ -7,8 +7,8 @@ namespace SchoolSchedule.Core.Interfaces
 {
     public interface IScheduleService
     {
-        Task<IEnumerable<Schedule>> GetAllServiceAsync();
-        Task<Schedule> GetServiceByIdAsync(int id);
+        Task<IEnumerable<Schedule>> GetAllSchedulesAsync();
+        Task<Schedule?> GetScheduleByIdAsync(int id);
         Task DeleteScheduleAsync(int  scheduleId);
         Task AddScheduleAsync(Schedule schedule);
 

@@ -13,7 +13,7 @@ namespace SchoolSchedule.Core.Interfaces
         Task<IEnumerable<CurriculumItem>> GetClassesCurriculumItemsAsync(int classId);
         Task<int> ValidateClassHoursAsync(int classId);
         Task AddCurriculumItemAsync(CurriculumItem curriculumItem);
-        Task UpdateCuriculumItemAsync(CurriculumItem curriculumItem);
+        Task UpdateCurriculumItemAsync(CurriculumItem curriculumItem);
         Task DeleteCurriculumItemAsync(int curiculumItemId);
 
     }

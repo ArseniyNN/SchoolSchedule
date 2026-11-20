@@ -59,21 +59,21 @@ namespace SchoolSchedule.Infrastructure.Services
                 return null;
             }
         }
-        public async Task AddCurrilicumItemAsync(CurriculumItem curriculumItem)
+        public async Task AddCurriculumItemAsync(CurriculumItem curriculumItem)
         {
             if(curriculumItem != null)
             {
                 await _repository.AddAsync(curriculumItem);
             }
         }
-        public async Task UpdateCurrilicumItemAsync(CurriculumItem currriculumItem)
+        public async Task UpdateCurriculumItemAsync(CurriculumItem currriculumItem)
         {
             if(currriculumItem != null)
             {
                 await _repository.UpdateAsync(currriculumItem);
             }
         }
-        public async Task DeleteCurrilicumItemAsync(int id)
+        public async Task DeleteCurriculumItemAsync(int id)
         {
             if(id > 0)
             {
